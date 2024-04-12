@@ -14,4 +14,9 @@ public class MenuFunctionality : MonoBehaviour
     {
         UniversalManagers.Instance.GetSceneLoadManager().LoadSceneByID(sceneID);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
