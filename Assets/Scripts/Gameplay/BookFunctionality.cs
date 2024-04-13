@@ -28,10 +28,20 @@ public class BookFunctionality : MonoBehaviour
     {
         _bookOpen = !_bookOpen;
         _bookAnimator.SetBool(_openAnimBool, _bookOpen);
-        ShowArrows(_bookOpen);
+        //ShowArrows(_bookOpen);
     }
 
-    private void ShowArrows(bool show)
+    public void ShowArrows()
+    {
+        VisualizeArrows(true);
+    }
+
+    public void HideArrows()
+    {
+        VisualizeArrows(false);
+    }
+
+    private void VisualizeArrows(bool show)
     {
         foreach(GameObject arrow in _arrows)
         {
