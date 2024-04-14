@@ -14,16 +14,6 @@ public class BookFunctionality : MonoBehaviour, IClickable
 
     private const string _openAnimBool = "InteractBook";
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            BookInteract();
-        if (Input.GetKeyDown(KeyCode.Y))
-            PageProgressInDirection(-1);
-        if (Input.GetKeyDown(KeyCode.U))
-            PageProgressInDirection(1);
-    }
-
     public void BookInteract()
     {
         _bookOpen = !_bookOpen;
