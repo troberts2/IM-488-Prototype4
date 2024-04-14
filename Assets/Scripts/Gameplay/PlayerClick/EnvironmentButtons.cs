@@ -11,29 +11,4 @@ public class EnvironmentButtons : MonoBehaviour, IClickable
     {
         _onClickFunction?.Invoke();
     }
-
-    public void RecycleTrash()
-    {
-        Debug.Log("Recycle");
-    }
-
-    public void DiscardTrash()
-    {
-        Debug.Log("Discard");
-    }
-
-    public void CutTrash()
-    {
-        Debug.Log("Cut");
-    }
-
-    public void WashTrash()
-    {
-        Debug.Log("Wash");
-    }
-
-    public void MeltTrash()
-    {
-        Debug.Log("Melt");
-    }
 }

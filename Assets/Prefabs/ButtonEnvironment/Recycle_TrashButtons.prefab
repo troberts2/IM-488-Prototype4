@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 5341783306356393578}
   - component: {fileID: 2261872649058290230}
   - component: {fileID: 8841440564141759795}
-  m_Layer: 0
+  - component: {fileID: 3674839492521462675}
+  m_Layer: 6
   m_Name: Recycle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,12 +133,27 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3674839492521462675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2905300653295640834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c396d4622696d4ab943ecb13a44625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickFunction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7011385842203385699
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +166,8 @@ GameObject:
   - component: {fileID: 3728251755143855972}
   - component: {fileID: 925053957961154875}
   - component: {fileID: 3095145669453486323}
-  m_Layer: 0
+  - component: {fileID: 271121329594662545}
+  m_Layer: 6
   m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,12 +254,27 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &271121329594662545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011385842203385699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c396d4622696d4ab943ecb13a44625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickFunction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7733364391736742023
 GameObject:
   m_ObjectHideFlags: 0
