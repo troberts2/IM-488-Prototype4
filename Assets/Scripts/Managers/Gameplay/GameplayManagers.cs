@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameplayManagers : MonoBehaviour
 {
     public static GameplayManagers Instance;
+    [SerializeField] private TrashHandleScript _trashHandler;
     [SerializeField] private EventManager _eventManager;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
     }
@@ -15,5 +16,10 @@ public class GameplayManagers : MonoBehaviour
     public EventManager GetEventManager()
     {
         return _eventManager;
+    }
+
+    public TrashHandleScript GetTrashHandler()
+    {
+        return _trashHandler;
     }
 }

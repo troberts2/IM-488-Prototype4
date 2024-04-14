@@ -46,7 +46,8 @@ GameObject:
   - component: {fileID: 4013986648003718371}
   - component: {fileID: 6722890230028805092}
   - component: {fileID: 7760968040866471409}
-  m_Layer: 0
+  - component: {fileID: 2161879764561153926}
+  m_Layer: 6
   m_Name: Cut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,12 +134,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2161879764561153926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114505226301997330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c396d4622696d4ab943ecb13a44625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2161879764561153926}
+        m_TargetAssemblyTypeName: EnvironmentButtons, Assembly-CSharp
+        m_MethodName: CutTrash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5641165538070353871
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +179,8 @@ GameObject:
   - component: {fileID: 667598914527363812}
   - component: {fileID: 4366529851061634340}
   - component: {fileID: 6247260230698287620}
-  m_Layer: 0
+  - component: {fileID: 3820009520040395911}
+  m_Layer: 6
   m_Name: Melt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,12 +267,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3820009520040395911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641165538070353871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c396d4622696d4ab943ecb13a44625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3820009520040395911}
+        m_TargetAssemblyTypeName: EnvironmentButtons, Assembly-CSharp
+        m_MethodName: MeltTrash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7853374518128641147
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +312,8 @@ GameObject:
   - component: {fileID: 8375677650136672978}
   - component: {fileID: 658625819707236322}
   - component: {fileID: 1203607424472809453}
-  m_Layer: 0
+  - component: {fileID: 4218947742832050569}
+  m_Layer: 6
   m_Name: Wash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,12 +400,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4218947742832050569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853374518128641147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c396d4622696d4ab943ecb13a44625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickFunction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4218947742832050569}
+        m_TargetAssemblyTypeName: EnvironmentButtons, Assembly-CSharp
+        m_MethodName: WashTrash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7881837584324263514
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,22 @@ public class TrashHandleScript : MonoBehaviour
         recycle.enabled = true;
         discard.enabled = true;
     }
+
+    public void CutTrash()
+    {
+
+    }
+
+    public void WashTrash()
+    {
+
+    }
+
+    public void MeltTrash()
+    {
+
+    }
+
     public void DiscardTrash()
     {
         discard.enabled = false;
@@ -29,4 +45,6 @@ public class TrashHandleScript : MonoBehaviour
         
         print("help");
     }
+
+    
 }
