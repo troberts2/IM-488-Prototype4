@@ -197,12 +197,12 @@ PrefabInstance:
     - target: {fileID: 1487457063516346206, guid: 0660a3e1f204ed74ea28bbeafff27f96,
         type: 3}
       propertyPath: m_VerticalAxis.m_MaxValue
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1487457063516346206, guid: 0660a3e1f204ed74ea28bbeafff27f96,
         type: 3}
       propertyPath: m_VerticalAxis.m_MinValue
-      value: -10
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1856166456283282365, guid: 0660a3e1f204ed74ea28bbeafff27f96,
         type: 3}
