@@ -9,7 +9,6 @@ public class EnvironmentButtons : MonoBehaviour, IClickable
 
     public void OnPlayerClick()
     {
-        Debug.Log("Clicked");
         _onClickFunction?.Invoke();
     }
 
