@@ -229,7 +229,8 @@ GameObject:
   - component: {fileID: 7239698507114088643}
   - component: {fileID: 536424685258561067}
   - component: {fileID: 2113675990777494116}
-  m_Layer: 0
+  - component: {fileID: 5849919180939950684}
+  m_Layer: 6
   m_Name: RightButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,12 +318,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5849919180939950684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226681179178233867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a497af4ec679eb543a29325df43dc073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _associatedBook: {fileID: 9214064335866370074}
+  _pageDirection: 1
 --- !u!1 &421859338361037625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1111,59 @@ Transform:
   - {fileID: 5094856746071745271}
   m_Father: {fileID: 3139676910687301986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4108155318740171039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8052207892771417862}
+  - component: {fileID: 1726532431581492307}
+  m_Layer: 6
+  m_Name: InteractArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8052207892771417862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108155318740171039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3139676910687301986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1726532431581492307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108155318740171039}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.43, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4138008495579117996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,6 +1476,7 @@ Transform:
   - {fileID: 52110266610444725}
   - {fileID: 5746570086025591903}
   - {fileID: 3877659770976975099}
+  - {fileID: 8052207892771417862}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6619581274174381145
@@ -1903,7 +1972,8 @@ GameObject:
   - component: {fileID: 3811933039761335531}
   - component: {fileID: 6152081509918879385}
   - component: {fileID: 4807165495928042701}
-  m_Layer: 0
+  - component: {fileID: 8272908451353603784}
+  m_Layer: 6
   m_Name: LeftButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1991,12 +2061,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8272908451353603784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7684629612745133806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a497af4ec679eb543a29325df43dc073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _associatedBook: {fileID: 9214064335866370074}
+  _pageDirection: -1
 --- !u!1 &7689541398332939484
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookFunctionality : MonoBehaviour
+public class BookFunctionality : MonoBehaviour, IClickable
 {
     [SerializeField] private List<GameObject> _leftPages;
     [SerializeField] private List<GameObject> _rightPages;
@@ -77,5 +77,10 @@ public class BookFunctionality : MonoBehaviour
             _currentPage = _leftPages.Count-1;
 
         PageActive(_currentPage, true);
+    }
+
+    public void OnPlayerClick()
+    {
+        BookInteract();
     }
 }

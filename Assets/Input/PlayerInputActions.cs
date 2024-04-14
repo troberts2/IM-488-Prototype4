@@ -28,7 +28,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""2b346c13-afaa-4b1a-81fb-29f560dfe56e"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Click"",
                     ""type"": ""Button"",
                     ""id"": ""22fc1c7b-3a91-4487-b11d-85aecc89e501"",
                     ""expectedControlType"": ""Button"",
@@ -41,11 +41,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7f5d080d-d2e5-4c63-825d-b4087a85a909"",
-                    ""path"": """",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,7 +56,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
 }");
         // MainGameplay
         m_MainGameplay = asset.FindActionMap("MainGameplay", throwIfNotFound: true);
-        m_MainGameplay_Newaction = m_MainGameplay.FindAction("New action", throwIfNotFound: true);
+        m_MainGameplay_Click = m_MainGameplay.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +118,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // MainGameplay
     private readonly InputActionMap m_MainGameplay;
     private List<IMainGameplayActions> m_MainGameplayActionsCallbackInterfaces = new List<IMainGameplayActions>();
-    private readonly InputAction m_MainGameplay_Newaction;
+    private readonly InputAction m_MainGameplay_Click;
     public struct MainGameplayActions
     {
         private @PlayerInputActions m_Wrapper;
         public MainGameplayActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_MainGameplay_Newaction;
+        public InputAction @Click => m_Wrapper.m_MainGameplay_Click;
         public InputActionMap Get() { return m_Wrapper.m_MainGameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -133,16 +133,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_MainGameplayActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_MainGameplayActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
         }
 
         private void UnregisterCallbacks(IMainGameplayActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
         }
 
         public void RemoveCallbacks(IMainGameplayActions instance)
@@ -162,6 +162,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public MainGameplayActions @MainGameplay => new MainGameplayActions(this);
     public interface IMainGameplayActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }
