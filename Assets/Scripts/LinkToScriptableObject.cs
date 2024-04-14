@@ -4,5 +4,13 @@ using UnityEngine;
 
 public class LinkToScriptableObject : MonoBehaviour
 {
-    public TrashObj Object;
+    public TrashObj _object;
+
+
+    private void Start()
+    {
+        _object = new TrashObj();
+        _object.CreateTrash(1);
+        print(_object.description);
+    }
 }
