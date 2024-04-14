@@ -16,6 +16,7 @@ public class PlayerClickFunctionality : MonoBehaviour
     void Start()
     {
         EnablePlayerInput();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnDestroy()
