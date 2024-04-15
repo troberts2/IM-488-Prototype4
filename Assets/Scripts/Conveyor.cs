@@ -13,6 +13,8 @@ public class Conveyor : MonoBehaviour
      public GameObject currentTrash;
     private bool isThereTrashOnConveyor = false;
 
+    private IEnumerator ConveyorMovement;
+
     [SerializeField] GameObject trashHandleButtons;
 
     private void Update()
@@ -33,10 +35,18 @@ public class Conveyor : MonoBehaviour
 
             }
         }
+    }
 
-       
-      
-        
+    private IEnumerator MoveTrashAlongConveyor()
+    {
+        while (currentTrash != null && currentTrash.transform.position == targetPos.position)
+        {
+            currentTrash.transform.position = Vector3.MoveTowards
+                (currentTrash.transform.position, targetPos.position, speed * Time.deltaTime);
+            yield return null;
+        }
+
+        GameplayManagers.Instance.GetEventManager().InvokeTrashAtEnd();
     }
 
     void OnCollisionEnter(Collision collision)
