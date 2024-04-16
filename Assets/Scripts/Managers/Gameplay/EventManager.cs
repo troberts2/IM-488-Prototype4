@@ -8,11 +8,9 @@ public class EventManager : MonoBehaviour
     private UnityEvent _trashSpawned = new UnityEvent();
     private UnityEvent _trashAtEndOfConveyor = new UnityEvent();
 
-    private UnityEvent _recycleSort = new UnityEvent();
-    private UnityEvent _discardSort = new UnityEvent();
+    private UnityEvent<bool> _sortDecision = new UnityEvent<bool>();
+    private UnityEvent<bool> _sortCorrectness = new UnityEvent<bool>();
 
-    private UnityEvent _correctSort = new UnityEvent();
-    private UnityEvent _incorrectSort = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -30,25 +28,16 @@ public class EventManager : MonoBehaviour
         _trashAtEndOfConveyor?.Invoke();
     }
 
-    public void InvokeRecycleSort()
+    public void InvokeSortDecision(bool decision)
     {
-        _recycleSort?.Invoke();
+        _sortDecision.Invoke(decision);
     }
 
-    public void InvokeDiscardSort()
+    public void InvokeSortCorrectness(bool correct)
     {
-        _discardSort?.Invoke();
+        _sortCorrectness.Invoke(correct);
     }
 
-    public void InvokeCorrectSort()
-    {
-        _correctSort?.Invoke();
-    }
-
-    public void InvokeIncorrectSort()
-    {
-        _incorrectSort?.Invoke();
-    }
 
     #region Getters and Setters
     public UnityEvent GetTrashSpawnedEvent()
@@ -61,24 +50,18 @@ public class EventManager : MonoBehaviour
         return _trashAtEndOfConveyor;
     }
 
-    public UnityEvent GetRecycleSortEvent()
+    public UnityEvent<bool> GetSortDecisionEvent()
     {
-        return _recycleSort;
+        Debug.Log("getsortEvent");
+        return _sortDecision;
     }
 
-    public UnityEvent GetDiscardSort()
+    public UnityEvent<bool> GetSortCorrectnessEvent()
     {
-        return _discardSort;
+        return _sortCorrectness;
     }
 
-    public UnityEvent GetCorrectSortEvent()
-    {
-        return _correctSort;
-    }
 
-    public UnityEvent GetIncorrectSortEvent()
-    {
-        return _incorrectSort;
-    }
+    
     #endregion
 }
