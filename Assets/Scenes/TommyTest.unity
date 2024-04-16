@@ -614,8 +614,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testSparkly: {fileID: 0}
   cutObjectPrefab: {fileID: 0}
-  recycle: {fileID: 636275111}
-  discard: {fileID: 1062702397}
   meltMaterial: {fileID: 0}
 --- !u!224 &422174503
 RectTransform:
@@ -1173,7 +1171,8 @@ PrefabInstance:
         type: 3}
       propertyPath: meltMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: c4c0c1a9d72ed9c4589cb9002d7bdbe1, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: 05700fd78a5b7b145b0a214f9617c197,
+        type: 3}
     - target: {fileID: 590204690073946655, guid: 3a2eff6c33ddac04b8605de585749926,
         type: 3}
       propertyPath: cutObjectPrefab

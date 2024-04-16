@@ -16,9 +16,8 @@ public class TrashHandleScript : MonoBehaviour
         //recycle.enabled = true;
         //discard.enabled = true;
     }
-    private bool melting = false;
     private void Update() {
-
+        if(melt) Melt();
     }
     private GameObject cutObject;
 
@@ -44,19 +43,31 @@ public class TrashHandleScript : MonoBehaviour
     public void MeltTrash()
     {
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
+        meltMaterial.SetColor("_Trash_Color", GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<MeshRenderer>().material.color);
 
         objMat = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<MeshRenderer>().material = meltMaterial;
-        objMat.SetFloat("_CutoffHeight", GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.transform.position.y * 2);
-        StartCoroutine(Melt(4f));
+        melt = true;
     }
-    IEnumerator Melt(float time){
-        float counter = 0;
-        while (counter <= time){
-            counter += Time.deltaTime;
-            objMat.SetFloat("_CutoffHeight", meltMaterial.GetFloat("_CutoffHeight") - .005f);
-            yield return null;
+    private float startValue = -1f; // Starting value of the float property
+    private float endValue = 1f; // Ending value of the float property
+    private float duration = 2f; // Duration of the transition in seconds
+    private float currentTime = 0f;
+    
+    void Melt(){
+        // Increment current time
+        currentTime += Time.deltaTime;
+        // Calculate t value between 0 and 1 based on current time and duration
+        float t = Mathf.Clamp01(currentTime / duration);
+        // Calculate the interpolated value between startValue and endValue
+        float floatValue = Mathf.Lerp(startValue, endValue, t);
+        // Set the float property in the material
+        objMat.SetFloat("_Dissolve", floatValue);
+        // Reset time and value if duration is exceeded
+        if (currentTime >= duration)
+        {
+            currentTime = 0f;
+            melt = false;
         }
-        objMat = null;
     }
 
     public void RecycleTrash()
