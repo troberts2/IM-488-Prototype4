@@ -26,6 +26,7 @@ public class PlayerClickFunctionality : MonoBehaviour
 
     private void PlayerClick(InputAction.CallbackContext context)
     {
+        Debug.Log("Player click");
         RayCastClick();
     }
 
