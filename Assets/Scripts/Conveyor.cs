@@ -9,7 +9,7 @@ public class Conveyor : MonoBehaviour
     [SerializeField] Transform targetPos;
     [SerializeField] float speed;
 
-    private List<GameObject> _trashOnConveyor = new List<GameObject>();
+    private Queue<GameObject> _trashOnConveyor = new Queue<GameObject>();
      public GameObject currentTrash;
     private bool isThereTrashOnConveyor = false;
 
