@@ -8,6 +8,7 @@ public class GameplayManagers : MonoBehaviour
     [SerializeField] private TrashHandleScript _trashHandler;
     [SerializeField] private EventManager _eventManager;
     [SerializeField] private SortingDecisionManager _sortDecisionManager;
+    [SerializeField] private ScoreManager _scoreManager;
 
     private void Awake()
     {
@@ -27,5 +28,10 @@ public class GameplayManagers : MonoBehaviour
     public SortingDecisionManager GetSortingDecisionManager()
     {
         return _sortDecisionManager;
+    }
+    
+    public ScoreManager GetScoreManager()
+    {
+        return _scoreManager;
     }
 }

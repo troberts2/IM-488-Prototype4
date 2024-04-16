@@ -51,6 +51,7 @@ MonoBehaviour:
   _trashHandler: {fileID: 590204690073946655}
   _eventManager: {fileID: 7552622698146702330}
   _sortDecisionManager: {fileID: 4246712569069777577}
+  _scoreManager: {fileID: 6431149580731704068}
 --- !u!1001 &138181218384423886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -297,6 +298,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1846221343561360230}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6431149580731704068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4674473629651714146, guid: 54aea16f811ae764ab9af2d7cb39b929,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846221343561360230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af4e2b25ec55904d968787f32c38d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6680606513714935067
 PrefabInstance:
   m_ObjectHideFlags: 0
