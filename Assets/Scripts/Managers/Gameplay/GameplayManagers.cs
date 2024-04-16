@@ -9,6 +9,7 @@ public class GameplayManagers : MonoBehaviour
     [SerializeField] private EventManager _eventManager;
     [SerializeField] private SortingDecisionManager _sortDecisionManager;
     [SerializeField] private ScoreManager _scoreManager;
+    [SerializeField] private DestinationManager _destinationManager;
 
     private void Awake()
     {
@@ -33,5 +34,10 @@ public class GameplayManagers : MonoBehaviour
     public ScoreManager GetScoreManager()
     {
         return _scoreManager;
+    }
+
+    public DestinationManager GetDestinationManager()
+    {
+        return _destinationManager;
     }
 }
