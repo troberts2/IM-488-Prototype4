@@ -7,14 +7,14 @@ public class TrashHandleScript : MonoBehaviour
 {
     [SerializeField] Material testSparkly;
     [SerializeField] GameObject cutObjectPrefab;
-    [SerializeField] Button recycle;
-    [SerializeField] Button discard;
+    /*[SerializeField] Button recycle;
+    [SerializeField] Button discard;*/
     bool melt = false;
 
     private void OnEnable()
     {
-        recycle.enabled = true;
-        discard.enabled = true;
+        //recycle.enabled = true;
+        //discard.enabled = true;
     }
     private bool melting = false;
     private void Update() {
@@ -61,7 +61,7 @@ public class TrashHandleScript : MonoBehaviour
 
     public void RecycleTrash()
     {
-        recycle.enabled = false;
+        //recycle.enabled = false;
         Destroy(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash);
         if(cutObject != null) Destroy(cutObject);
         GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;
@@ -72,7 +72,7 @@ public class TrashHandleScript : MonoBehaviour
 
     public void DiscardTrash()
     {
-        discard.enabled = false;
+        //discard.enabled = false;
         Destroy(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash);
         if (cutObject != null) Destroy(cutObject);
         GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;

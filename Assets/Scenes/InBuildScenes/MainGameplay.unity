@@ -509,8 +509,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testSparkly: {fileID: 0}
   cutObjectPrefab: {fileID: 0}
-  recycle: {fileID: 636275111}
-  discard: {fileID: 1062702397}
   meltMaterial: {fileID: 0}
 --- !u!224 &422174503
 RectTransform:
