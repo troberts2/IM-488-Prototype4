@@ -7,6 +7,7 @@ public class GameplayManagers : MonoBehaviour
     public static GameplayManagers Instance;
     [SerializeField] private TrashHandleScript _trashHandler;
     [SerializeField] private EventManager _eventManager;
+    [SerializeField] private SortingDecisionManager _sortDecisionManager;
 
     private void Awake()
     {
@@ -21,5 +22,10 @@ public class GameplayManagers : MonoBehaviour
     public TrashHandleScript GetTrashHandler()
     {
         return _trashHandler;
+    }
+
+    public SortingDecisionManager GetSortingDecisionManager()
+    {
+        return _sortDecisionManager;
     }
 }
