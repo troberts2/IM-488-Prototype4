@@ -17,7 +17,7 @@ public class DestinationManager : MonoBehaviour
     public void ProgressDestination()
     {
         _currentDestination++;
-        if ((int)_currentDestination > 5)
+        if ((int)_currentDestination > 6)
             _currentDestination = Destinations.Suburbia;
 
         UpdateDestinationUI();
@@ -29,6 +29,10 @@ public class DestinationManager : MonoBehaviour
             ToString();
     }
     
+    public Destinations GetCurrentDestination()
+    {
+        return _currentDestination;
+    }
 }
 
 enum Destinations
@@ -38,5 +42,6 @@ enum Destinations
     Metrock,
     Middlesburg,
     Frugand,
-    Alloyland
+    Alloyland,
+    Radiolead
 };
