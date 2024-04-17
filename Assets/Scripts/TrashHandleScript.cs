@@ -29,10 +29,17 @@ public class TrashHandleScript : MonoBehaviour
         GameObject currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash;
         TrashObj trashObj = currentTrash.GetComponent<LinkToScriptableObject>()._object;
         trashObj.cut = true;
+        ogTrashColor = currentTrash.GetComponent<MeshRenderer>().material.color;
+        objMat = new Material(currentTrash.GetComponent<MeshRenderer>().material);
 
         if(currentTrash.GetComponent<MeshRenderer>() != null)
-        currentTrash.GetComponent<MeshRenderer>().enabled = false;
+        currentTrash.GetComponent<MeshFilter>().mesh.Clear();
+        if(cutObject == null)
         cutObject = Instantiate(cutObjectPrefab, currentTrash.transform.position, Quaternion.identity);
+        // if (currentTrash.GetComponent<MeshFilter>().mesh == null) // Check if the GameObject itself doesn't have a MeshRenderer
+        // {
+        ChangeChildrenMaterial(cutObject.transform, objMat); // Call a recursive function to change the material of all children
+        //}
     }
 
     public void WashTrash()
@@ -44,9 +51,9 @@ public class TrashHandleScript : MonoBehaviour
         trashObj.washed = true;
         testSparkly.SetColor("_Base_Color_1", ogTrashColor);
 
-        if (currentTrash.GetComponent<MeshRenderer>() == null) // Check if the GameObject itself doesn't have a MeshRenderer
+        if (cutObject != null) // Check if the GameObject itself doesn't have a MeshRenderer
         {
-            ChangeChildrenMaterial(currentTrash.transform, testSparkly); // Call a recursive function to change the material of all children
+            ChangeChildrenMaterial(cutObject.transform, testSparkly); // Call a recursive function to change the material of all children
         }else
         currentTrash.GetComponent<MeshRenderer>().material = testSparkly;
 
@@ -63,9 +70,9 @@ public class TrashHandleScript : MonoBehaviour
         TrashObj trashObj = currentTrash.GetComponent<LinkToScriptableObject>()._object;
         trashObj.melted = true;
 
-        if (currentTrash.GetComponent<MeshRenderer>() == null) // Check if the GameObject itself doesn't have a MeshRenderer
+        if (cutObject != null) // Check if the GameObject itself doesn't have a MeshRenderer
         {
-            ChangeChildrenMaterial(currentTrash.transform, meltMaterial); // Call a recursive function to change the material of all children
+            ChangeChildrenMaterial(cutObject.transform, meltMaterial); // Call a recursive function to change the material of all children
         }else
         objMat = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<MeshRenderer>().material = meltMaterial;
         melt = true;
