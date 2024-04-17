@@ -87,7 +87,7 @@ public class TrashObj : ScriptableObject
             }
         }
 
-        description = "a piece of trash made of " + materialName;
+        
 
     }
 
