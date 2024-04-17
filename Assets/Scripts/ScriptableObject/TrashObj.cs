@@ -18,8 +18,12 @@ public class TrashObj : ScriptableObject
         PET_Plastic,//recyclable
         HDPE_Plastic,//recyclable
         PVC_Plastic,
-        PS_Plastic
+        PS_Plastic,
+        lead
     }
+    public bool cut = false;
+    public bool washed = false;
+    public bool melted = false;
 
 
     [Header("The name of the object")]

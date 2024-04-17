@@ -12,6 +12,7 @@ public class DestinationManager : MonoBehaviour
     void Start()
     {
         UpdateDestinationUI();
+        _currentDestination = Destinations.Alloyland;
     }
 
     public void ProgressDestination()
