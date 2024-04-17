@@ -614,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testSparkly: {fileID: 0}
   cutObjectPrefab: {fileID: 0}
+  ogTrashColor: {r: 0, g: 0, b: 0, a: 0}
   meltMaterial: {fileID: 0}
 --- !u!224 &422174503
 RectTransform:

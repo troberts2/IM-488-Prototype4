@@ -117,7 +117,7 @@ PrefabInstance:
     - target: {fileID: 4253000598698858855, guid: 4cde8516a2fa37441895cbac2166dd8d,
         type: 3}
       propertyPath: recyclableMaterials.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4253000598698858855, guid: 4cde8516a2fa37441895cbac2166dd8d,
         type: 3}
@@ -143,6 +143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: recyclableMaterials.Array.data[5]
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253000598698858855, guid: 4cde8516a2fa37441895cbac2166dd8d,
+        type: 3}
+      propertyPath: recyclableMaterials.Array.data[6]
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7250295630843679654, guid: 4cde8516a2fa37441895cbac2166dd8d,
         type: 3}
