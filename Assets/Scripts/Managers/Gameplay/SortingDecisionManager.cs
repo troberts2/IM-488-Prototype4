@@ -26,12 +26,12 @@ public class SortingDecisionManager : MonoBehaviour
 
     private bool ObjectShouldBeRecycled()
     {
-        Destinations _currentTestination = GameplayManagers.Instance.GetDestinationManager().GetCurrentDestination();
+        Destinations _currentDestination = GameplayManagers.Instance.GetDestinationManager().GetCurrentDestination();
         //This is incomplete, I just set up the framework
         //Return true if the object should be recycled
         //Return false if the object should be discarded
         //Thanks <3
-        //The only things that should affect the 
+        //The only things that should affect the sort outcome are the material and the destination
         return false;
     }
 }
