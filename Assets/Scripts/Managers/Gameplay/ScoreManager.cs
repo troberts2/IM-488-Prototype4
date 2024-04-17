@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class ScoreManager : MonoBehaviour
     private void IncrementScore()
     {
         _currentScore++;
+        Debug.Log("points" + _currentScore);
         if (_currentScore >= _scoreToWin)
             PlayerWon();
     }
@@ -37,17 +39,22 @@ public class ScoreManager : MonoBehaviour
     private void IncrementMistake()
     {
         _currentMistakes++;
+        Debug.Log("mistakes:" + _currentMistakes);
         if (_currentMistakes >= _mistakesToLose)
             PlayerLost();
     }
 
     private void PlayerWon()
     {
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameplayManagers.Instance.GetSceneLoadManager().LoadSceneByName("WinScene");
     }
 
     private void PlayerLost()
     {
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameplayManagers.Instance.GetSceneLoadManager().LoadSceneByName("LossScene");
     }
 }

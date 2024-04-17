@@ -10,6 +10,7 @@ public class GameplayManagers : MonoBehaviour
     [SerializeField] private SortingDecisionManager _sortDecisionManager;
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private DestinationManager _destinationManager;
+    [SerializeField] private SceneLoadManager _sceneLoadManager;
 
     private void Awake()
     {
@@ -39,5 +40,9 @@ public class GameplayManagers : MonoBehaviour
     public DestinationManager GetDestinationManager()
     {
         return _destinationManager;
+    }
+
+    public SceneLoadManager GetSceneLoadManager(){
+        return _sceneLoadManager;
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class TrashObj : ScriptableObject
 {
 
-    enum material
+    public enum material
     {
         wood,//recyclable
         paper,//recyclable
@@ -23,7 +23,7 @@ public class TrashObj : ScriptableObject
 
 
     [Header("The name of the object")]
-    public string name;
+    public string objName;
     [Header("The game object that will be representing the object")]
     public GameObject visualRepresentation;
     //the material the object is made of
@@ -89,6 +89,11 @@ public class TrashObj : ScriptableObject
 
         description = "a piece of trash made of " + materialName;
 
+    }
+
+    public List<material> GetMaterialTypes()
+    {
+        return _material;
     }
 
 
