@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7458358886446130608}
   - component: {fileID: -8976785317786561767}
   m_Layer: 0
-  m_Name: Test_trash 2
+  m_Name: Apple
   m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34c9cbf33bebbdf40971c5046d3b0b86, type: 2}
+  - {fileID: 2100000, guid: 0d6939386bc9e3e4fba846e151427b67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e74dde11378e546a562e4894f18519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 11400000, guid: f36fd2326c37f8d46b500cbdd89fdfdf, type: 2}
+  _object: {fileID: 0}
 --- !u!54 &-8976785317786561767
 Rigidbody:
   m_ObjectHideFlags: 0
