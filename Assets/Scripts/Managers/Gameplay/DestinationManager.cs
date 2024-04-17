@@ -35,7 +35,7 @@ public class DestinationManager : MonoBehaviour
     }
 }
 
-enum Destinations
+public enum Destinations
 {
     Suburbia,
     Untentia,
