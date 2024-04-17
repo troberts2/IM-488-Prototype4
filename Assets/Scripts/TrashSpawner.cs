@@ -7,11 +7,13 @@ public class TrashSpawner : MonoBehaviour
    
 
     public List<GameObject> listOfTrashTypes = new List<GameObject>();
+    private TrashHandleScript trashHandleScript;
 
     public bool isReadyForNextItem;
     private void Start()
     {
         isReadyForNextItem = true;
+        trashHandleScript = FindObjectOfType<TrashHandleScript>();
     }
 
     private void Update()
@@ -22,12 +24,12 @@ public class TrashSpawner : MonoBehaviour
             isReadyForNextItem = false;
         }
 
-        print(isReadyForNextItem);
     }
 
     void SpawnTrash(int index)
     {
-        Instantiate(listOfTrashTypes[index], transform.position, Quaternion.identity);
+        GameObject spawnedTrash = Instantiate(listOfTrashTypes[index], transform.position, Quaternion.identity);
+        trashHandleScript.ogTrashColor = spawnedTrash.GetComponent<MeshRenderer>().material.color;
     }
 
 }
