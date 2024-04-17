@@ -9,7 +9,7 @@ public class Clipboard : MonoBehaviour, IClickable
     [Header("Clipboard UI")]
     [SerializeField] private TMP_Text _nameText;
     [SerializeField] private TMP_Text _descText;
-    [SerializeField] private TMP_Text _destinationText;
+    //[SerializeField] private TMP_Text _destinationText;
     [Space]
     [SerializeField] private Animator _bookAnimator;
     private bool _boardUp = false;
@@ -28,7 +28,7 @@ public class Clipboard : MonoBehaviour, IClickable
 
     private void UpdateUIOnClipboard()
     {
-
+        
     }
 
     #region PlayerInteractions
