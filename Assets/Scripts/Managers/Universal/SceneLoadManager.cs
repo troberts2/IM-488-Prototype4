@@ -10,6 +10,10 @@ public class SceneLoadManager : MonoBehaviour
         SceneManager.LoadScene(id);
     }
 
+    public void LoadSceneByName(string name){
+        SceneManager.LoadScene(name);
+    }
+
     public void ReloadCurrentScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

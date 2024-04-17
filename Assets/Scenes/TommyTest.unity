@@ -1152,33 +1152,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 590204690073946655, guid: 3a2eff6c33ddac04b8605de585749926,
-        type: 3}
-      propertyPath: discard
-      value: 
-      objectReference: {fileID: 1062702397}
-    - target: {fileID: 590204690073946655, guid: 3a2eff6c33ddac04b8605de585749926,
-        type: 3}
-      propertyPath: recycle
-      value: 
-      objectReference: {fileID: 636275111}
-    - target: {fileID: 590204690073946655, guid: 3a2eff6c33ddac04b8605de585749926,
-        type: 3}
-      propertyPath: testSparkly
-      value: 
-      objectReference: {fileID: 2100000, guid: 2a45f2b92e945704c950d9033550f967, type: 2}
-    - target: {fileID: 590204690073946655, guid: 3a2eff6c33ddac04b8605de585749926,
-        type: 3}
-      propertyPath: meltMaterial
-      value: 
-      objectReference: {fileID: -876546973899608171, guid: 05700fd78a5b7b145b0a214f9617c197,
-        type: 3}
-    - target: {fileID: 590204690073946655, guid: 3a2eff6c33ddac04b8605de585749926,
-        type: 3}
-      propertyPath: cutObjectPrefab
-      value: 
-      objectReference: {fileID: 7217462521359790646, guid: 05e55f62eef0f044489bd7242a4e59b9,
-        type: 3}
     - target: {fileID: 2552860278556674446, guid: 3a2eff6c33ddac04b8605de585749926,
         type: 3}
       propertyPath: m_LocalPosition.x
