@@ -17,6 +17,11 @@ public class TrashSpawner : MonoBehaviour
         trashHandleScript = FindObjectOfType<TrashHandleScript>();
     }
 
+    private void SubscribeToEvents()
+    {
+        GameplayManagers.Instance.GetEventManager().GetSortCorrectnessEvent().AddListener(ReadyForNext);
+    }
+
     private void Update()
     {
         i += Time.deltaTime;
@@ -33,6 +38,11 @@ public class TrashSpawner : MonoBehaviour
         GameObject spawnedTrash = Instantiate(listOfTrashTypes[index], transform.position, Quaternion.identity);
         trashHandleScript.ogTrashColor = spawnedTrash.GetComponent<MeshRenderer>().material.color;
         GameplayManagers.Instance.GetEventManager().InvokeTrashSpawned();
+    }
+
+    public void ReadyForNext(bool none)
+    {
+        isReadyForNextItem = true;
     }
 
 }

@@ -68,7 +68,7 @@ public class Conveyor : MonoBehaviour
             currentTrash.GetComponent<Rigidbody>().useGravity = true;
             isThereTrashOnConveyor = false;
             currentTrash = null;
-            gameObject.GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;
+            //gameObject.GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;
             print("exit");
 
         }

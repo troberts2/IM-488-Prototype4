@@ -29,11 +29,16 @@ public class TrashHandleScript : MonoBehaviour
         GameObject currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash;
         TrashObj trashObj = currentTrash.GetComponent<LinkToScriptableObject>()._object;
         trashObj.cut = true;
-        ogTrashColor = currentTrash.GetComponent<MeshRenderer>().material.color;
-        objMat = new Material(currentTrash.GetComponent<MeshRenderer>().material);
+        ogTrashColor = currentTrash.GetComponentInChildren<MeshRenderer>().material.color;
+        objMat = new Material(currentTrash.GetComponentInChildren<MeshRenderer>().material);
 
         if(currentTrash.GetComponent<MeshRenderer>() != null)
         currentTrash.GetComponent<MeshFilter>().mesh.Clear();
+        //currentTrash.GetComponent<MeshFilter>().mesh.Clear();
+
+        foreach (MeshFilter mf in currentTrash.GetComponentsInChildren<MeshFilter>())
+            mf.mesh.Clear();
+
         if(cutObject == null)
         cutObject = Instantiate(cutObjectPrefab, currentTrash.transform.position, Quaternion.identity);
         // if (currentTrash.GetComponent<MeshFilter>().mesh == null) // Check if the GameObject itself doesn't have a MeshRenderer
@@ -57,6 +62,9 @@ public class TrashHandleScript : MonoBehaviour
         }else
         currentTrash.GetComponent<MeshRenderer>().material = testSparkly;
 
+        foreach (MeshRenderer mr in currentTrash.GetComponentsInChildren<MeshRenderer>())
+            mr.material = testSparkly;
+
         Debug.Log(trashObj.washed);
     }
     [SerializeField]private Material meltMaterial;
@@ -75,6 +83,9 @@ public class TrashHandleScript : MonoBehaviour
             ChangeChildrenMaterial(cutObject.transform, meltMaterial); // Call a recursive function to change the material of all children
         }else
         objMat = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<MeshRenderer>().material = meltMaterial;
+
+        foreach (MeshRenderer mr in currentTrash.GetComponentsInChildren<MeshRenderer>())
+            mr.material = meltMaterial;
         melt = true;
         Debug.Log(trashObj.melted);
     }
