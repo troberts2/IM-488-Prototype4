@@ -23,12 +23,26 @@ public class Clipboard : MonoBehaviour, IClickable
 
     private void SubscribeToEvents()
     {
-        GameplayManagers.Instance.GetEventManager().GetTrashAtEndEvent().AddListener(UpdateUIOnClipboard);
+        GameplayManagers.Instance.GetEventManager().GetTrashSpawnedEvent().AddListener(UpdateUIOnClipboard);
+        //GameplayManagers.Instance.GetEventManager().GetTrashAtEndEvent().AddListener(UpdateUIOnClipboard);
     }
 
     private void UpdateUIOnClipboard()
     {
+        Invoke(nameof(Delay), 1);
         
+    }
+
+    private void Delay()
+    {
+        //TrashObj currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<LinkToScriptableObject>()._object;
+        TrashObj currentTrash = FindObjectOfType<LinkToScriptableObject>()._object;
+
+        Debug.Log("update UI" + currentTrash.objName);
+
+        _nameText.text = currentTrash.name;
+
+        _descText.text = currentTrash.description;
     }
 
     #region PlayerInteractions

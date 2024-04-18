@@ -8,6 +8,7 @@ public class TrashSpawner : MonoBehaviour
 
     public List<GameObject> listOfTrashTypes = new List<GameObject>();
     private TrashHandleScript trashHandleScript;
+    float i = 0;
 
     public bool isReadyForNextItem;
     private void Start()
@@ -18,7 +19,8 @@ public class TrashSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (isReadyForNextItem) 
+        i += Time.deltaTime;
+        if (isReadyForNextItem && i > 1) 
         {
             SpawnTrash(Random.Range(0,listOfTrashTypes.Count));
             isReadyForNextItem = false;
@@ -30,6 +32,7 @@ public class TrashSpawner : MonoBehaviour
     {
         GameObject spawnedTrash = Instantiate(listOfTrashTypes[index], transform.position, Quaternion.identity);
         trashHandleScript.ogTrashColor = spawnedTrash.GetComponent<MeshRenderer>().material.color;
+        GameplayManagers.Instance.GetEventManager().InvokeTrashSpawned();
     }
 
 }

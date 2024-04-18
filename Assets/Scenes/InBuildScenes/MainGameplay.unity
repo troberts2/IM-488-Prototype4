@@ -794,7 +794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listOfTrashTypes:
-  - {fileID: 4140470011879713480, guid: 0c32afa1c3dc5964e9e0f6ff9e39bf1b, type: 3}
   - {fileID: 4140470011879713480, guid: cfcda7fa1294e6042919bf087778cf53, type: 3}
   - {fileID: 4140470011879713480, guid: 2e2343f1f44bee847b44e5fcada97a5d, type: 3}
   - {fileID: 4140470011879713480, guid: e1261dac740c8b04baaefe3c2f615a5b, type: 3}

@@ -91,8 +91,6 @@ public class TrashObj : ScriptableObject
             }
         }
 
-        
-
     }
 
     public List<material> GetMaterialTypes()

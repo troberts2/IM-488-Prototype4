@@ -26,7 +26,7 @@ public class DestinationManager : MonoBehaviour
 
     private void UpdateDestinationUI()
     {
-        //_destinationText.text = _currentDestination.ToString();
+        _destinationText.text = _currentDestination.ToString();
         //    ToString();
     }
     
