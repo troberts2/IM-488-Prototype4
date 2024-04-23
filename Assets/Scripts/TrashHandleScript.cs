@@ -131,6 +131,7 @@ public class TrashHandleScript : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash);
         if(cutObject != null) Destroy(cutObject);
         GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;
+        GameplayManagers.Instance.GetSortingDecisionManager().recycledLastItem = true;
 
         GameplayManagers.Instance.GetEventManager().InvokeSortDecision(true);
         //print("help");
@@ -142,6 +143,7 @@ public class TrashHandleScript : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash);
         if (cutObject != null) Destroy(cutObject);
         GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;
+        GameplayManagers.Instance.GetSortingDecisionManager().recycledLastItem = false;
 
 
         GameplayManagers.Instance.GetEventManager().InvokeSortDecision(false);

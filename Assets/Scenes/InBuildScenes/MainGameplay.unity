@@ -1235,6 +1235,16 @@ PrefabInstance:
       propertyPath: _destinationText
       value: 
       objectReference: {fileID: 2011838361}
+    - target: {fileID: 4246712569069777577, guid: 3a2eff6c33ddac04b8605de585749926,
+        type: 3}
+      propertyPath: recyclableMaterials.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246712569069777577, guid: 3a2eff6c33ddac04b8605de585749926,
+        type: 3}
+      propertyPath: recyclableMaterials.Array.data[7]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

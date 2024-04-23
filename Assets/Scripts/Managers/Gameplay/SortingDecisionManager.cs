@@ -6,6 +6,7 @@ public class SortingDecisionManager : MonoBehaviour
 {
     [SerializeField] private List<TrashObj.material> recyclableMaterials;
     [SerializeField] private List<TrashObj.material> landfillMaterials;
+    internal bool recycledLastItem = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +39,15 @@ public class SortingDecisionManager : MonoBehaviour
             List<TrashObj.material> materialTypes = currentTrash.GetMaterialTypes();
             foreach (TrashObj.material material in materialTypes)
             {
-                if (!recyclableMaterials.Contains(material))
+                //check if you can actually recyle
+                if (!recyclableMaterials.Contains(material) && recycledLastItem)
                 {
-                    return false; // If any material is not recyclable, return false
+                    return false; // If any material is not recyclable,and you clicked recylce return false
+                }else if(recyclableMaterials.Contains(material) && !recycledLastItem){
+                    return true;
                 }
+
+                
                 //material checks
                 if(material == TrashObj.material.PET_Plastic && !currentTrash.cut) return false;
                 if(material == TrashObj.material.HDPE_Plastic && !currentTrash.cut) return false;
