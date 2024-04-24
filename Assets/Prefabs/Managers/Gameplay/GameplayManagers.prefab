@@ -200,7 +200,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cutObjectPrefab
       value: 
-      objectReference: {fileID: 7217462521359790646, guid: 05e55f62eef0f044489bd7242a4e59b9,
+      objectReference: {fileID: 919132149155446097, guid: b6b2452548b520c489f3412852955f3b,
         type: 3}
     - target: {fileID: 4096908084213801807, guid: d0722daf9c191cb47a8e4cb1b3f92132,
         type: 3}
