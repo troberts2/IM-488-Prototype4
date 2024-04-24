@@ -6,6 +6,7 @@ using TMPro;
 public class DestinationManager : MonoBehaviour
 {
     [SerializeField] TMP_Text _destinationText;
+    [SerializeField] TMP_Text _truckText;
 
     private Destinations _currentDestination;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class DestinationManager : MonoBehaviour
     private void UpdateDestinationUI()
     {
         _destinationText.text = _currentDestination.ToString();
+        _truckText.text = _currentDestination.ToString();
         //    ToString();
     }
     
