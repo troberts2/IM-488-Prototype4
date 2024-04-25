@@ -8,6 +8,10 @@ public class TrashHandleScript : MonoBehaviour
     [SerializeField] Material testSparkly;
     [SerializeField] GameObject cutObjectPrefab;
     public Color ogTrashColor;
+
+    [SerializeField] private ParticleSystem _cutVFX;
+    [SerializeField] private ParticleSystem _washVFX;
+    [SerializeField] private ParticleSystem _meltVFX;
     /*[SerializeField] Button recycle;
     [SerializeField] Button discard;*/
     bool melt = false;
@@ -24,6 +28,7 @@ public class TrashHandleScript : MonoBehaviour
 
     public void CutTrash()
     {
+        _cutVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
 
         GameObject currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash;
@@ -50,6 +55,7 @@ public class TrashHandleScript : MonoBehaviour
 
     public void WashTrash()
     {
+        _washVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
 
         GameObject currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash;
@@ -73,6 +79,7 @@ public class TrashHandleScript : MonoBehaviour
     Material objMat;
     public void MeltTrash()
     {
+        _meltVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
         meltMaterial.SetColor("_Trash_Color", ogTrashColor);
 
