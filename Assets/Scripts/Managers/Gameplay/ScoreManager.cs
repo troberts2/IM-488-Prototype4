@@ -10,12 +10,9 @@ public class ScoreManager : MonoBehaviour
     private int _currentScore;
     private int _currentMistakes;
     // Start is called before the first frame update
-    void Start()
-    {
-        SubscribeToEvents();
-    }
+    
 
-    private void SubscribeToEvents()
+    public void SubscribeToEvents()
     {
         GameplayManagers.Instance.GetEventManager().GetSortCorrectnessEvent().AddListener(PlayerSorted);
     }
