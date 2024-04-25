@@ -2080,7 +2080,7 @@ MonoBehaviour:
 
 
     Employee
-    Handbook - Employees are allowed to do this at any time.
+    Handbook - Employees are allowed to open this at any time.
 
 '
   m_isRightToLeft: 0
@@ -3026,7 +3026,7 @@ Transform:
   m_GameObject: {fileID: 2741281982786950640}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.00000005960463, z: -0, w: 1}
-  m_LocalPosition: {x: -0.776, y: 0.366, z: -0.007}
+  m_LocalPosition: {x: -0.776, y: 0.43, z: -0.007}
   m_LocalScale: {x: 0.007999998, y: 0.007999999, z: 0.007999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3272,9 +3272,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '       - Employees can choose where the object will be sent before they
-    decide to dispose of the object. The destination depends on what actions have
-    been done to the object. Use the button at the top to change destination.'
+  m_text: '       - Employees must choose where the object will be sent before they
+    recycle the object. The destination depends on what actions have and haven''t
+    been done to the object. Use the button to change the destination, and check
+    the handbook to see which actions each destination will accept.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7420,7 +7421,7 @@ GameObject:
   - component: {fileID: 85138587043920608}
   - component: {fileID: 4723673273682034848}
   m_Layer: 0
-  m_Name: Cut
+  m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7435,7 +7436,7 @@ Transform:
   m_GameObject: {fileID: 6508790647259323445}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.774, y: 0.372, z: -0.012}
+  m_LocalPosition: {x: -0.774, y: 0.437, z: -0.012}
   m_LocalScale: {x: 0.0079999985, y: 0.007999999, z: 0.0079999985}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7519,7 +7520,7 @@ Transform:
   m_GameObject: {fileID: 6867860178854727118}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.00000005960463, z: -0, w: 1}
-  m_LocalPosition: {x: -0.776, y: -0.185, z: -0.007}
+  m_LocalPosition: {x: -0.776, y: -0.141, z: -0.007}
   m_LocalScale: {x: 0.007999998, y: 0.007999999, z: 0.007999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7901,7 +7902,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "       - Object continues to the destination selected.\nThe object must
-    be properly dealt with to be recycled.\n\n        - Object is thrown in the garbage."
+    be properly dealt with to be recycled.\n\n        - Object is thrown in the garbage.
+    Some objects must be washed before they can be trashed."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
