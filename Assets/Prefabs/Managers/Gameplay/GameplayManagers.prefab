@@ -154,6 +154,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SortingDecisionManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7250295630843679654, guid: 4cde8516a2fa37441895cbac2166dd8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: SortingDecitionManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -341,6 +346,11 @@ PrefabInstance:
     - target: {fileID: 6826888787901123180, guid: 54aea16f811ae764ab9af2d7cb39b929,
         type: 3}
       propertyPath: m_Name
+      value: ScoreManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826888787901123180, guid: 54aea16f811ae764ab9af2d7cb39b929,
+        type: 3}
+      propertyPath: m_TagString
       value: ScoreManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []

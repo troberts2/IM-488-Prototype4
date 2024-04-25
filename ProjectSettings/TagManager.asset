@@ -7,6 +7,8 @@ TagManager:
   - PlayerObjParent
   - Trash
   - Conveyor
+  - ScoreManager
+  - SortingDecitionManager
   layers:
   - Default
   - TransparentFX
