@@ -8,7 +8,8 @@ public class Clipboard : MonoBehaviour, IClickable
 {
     [Header("Clipboard UI")]
     [SerializeField] private TMP_Text _nameText;
-    [SerializeField] private TMP_Text _descText;
+    [SerializeField] private TMP_Text _descText_Name;
+    [SerializeField] private TMP_Text _descText_Material;
     //[SerializeField] private TMP_Text _destinationText;
     [Space]
     [SerializeField] private Animator _bookAnimator;
@@ -42,7 +43,54 @@ public class Clipboard : MonoBehaviour, IClickable
 
         _nameText.text = currentTrash.name;
 
-        _descText.text = currentTrash.description;
+        _descText_Name.text = currentTrash.name;
+
+        switch (currentTrash.materialName)
+        {
+            case "wood":
+                _descText_Material.text = "wood";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "paper":
+                _descText_Material.text = "paper";
+                _descText_Material.color = Color.green;
+                break;
+            case "aluminum":
+                _descText_Material.text = "aluminum";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "iron":
+                _descText_Material.text = "iron";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "copper":
+                _descText_Material.text = "copper";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "uranium":
+                _descText_Material.text = "uranium";
+                _descText_Material.color = Color.red;
+                break;
+            case "PET plastic":
+                _descText_Material.text = "PET plastic";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "HDPE plastic":
+                _descText_Material.text = "HDPE plastic";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "PVC plastic":
+                _descText_Material.text = "PVC plastic";
+                _descText_Material.color = Color.red;
+                break;
+            case "PS plastic":
+                _descText_Material.text = "PS Plastic";
+                _descText_Material.color = Color.red;
+                break;
+            default:
+                break;
+        }
+
     }
 
     #region PlayerInteractions
