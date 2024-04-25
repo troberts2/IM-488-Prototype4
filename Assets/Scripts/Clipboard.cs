@@ -15,7 +15,7 @@ public class Clipboard : MonoBehaviour, IClickable
     private string Report;
     private int daysToTransport;
     private string objectCondition;
-    private string objectDestination;
+    private string objectName;
     //[SerializeField] private TMP_Text _destinationText;
     [Space]
     [SerializeField] private Animator _bookAnimator;
@@ -27,7 +27,7 @@ public class Clipboard : MonoBehaviour, IClickable
     {
         SubscribeToEvents();
 
-        
+
     }
 
     private void SubscribeToEvents()
@@ -39,7 +39,7 @@ public class Clipboard : MonoBehaviour, IClickable
     private void UpdateUIOnClipboard()
     {
         Invoke(nameof(Delay), 1);
-        
+
     }
 
     private void Delay()
@@ -51,11 +51,13 @@ public class Clipboard : MonoBehaviour, IClickable
 
         _nameText.text = currentTrash.name;
 
-        _descText_Name.text = currentTrash.name;
+        //_descText_Name.text = currentTrash.name;
 
-        daysToTransport = Random.Range(1, 14);
+        daysToTransport = Random.Range(2, 14);
 
-        int randCondition = Random.Range(0,7);
+        int randCondition = Random.Range(0, 7);
+
+        int randOrder = Random.Range(0, 7);
 
         switch (randCondition)
         {
@@ -66,33 +68,80 @@ public class Clipboard : MonoBehaviour, IClickable
                 objectCondition = "bad";
                 break;
             case 2:
-                objectCondition = "good";
+                objectCondition = "acceptable";
                 break;
             case 3:
-                objectCondition = "bad";
+                objectCondition = "terrible";
                 break;
             case 4:
-                objectCondition = "good";
+                objectCondition = "great";
                 break;
             case 5:
-                objectCondition = "bad";
+                objectCondition = "nice";
                 break;
             case 6:
-                objectCondition = "good";
+                objectCondition = "usable";
                 break;
             case 7:
-                objectCondition = "bad";
+                objectCondition = "unforgivable";
                 break;
             default:
                 print("unkown condition");
                 break;
         }
-        
-        objectDestination = "Suburbia";
-        Report = "The object took " + daysToTransport + " days to transport and was found in " + objectCondition + " condition.";
+
+        switch (currentTrash.name)
+        {
+            case "Straw":
+                objectName = "a straw";
+                break;
+            case "Block":
+                objectName = "a block";
+                break;
+            case "Mug":
+                objectName = "a mug";
+                break;
+            case "Apple":
+                objectName = "an apple";
+                break;
+            default:
+                objectName = "an object";
+                break;
+        }
+
+        switch (randOrder)
+        {
+            case 0:
+                Report = "The object was found in " + objectCondition + " condition and took " + daysToTransport + " days to transport. The object is " + objectName + " made of " + currentTrash.materialName + ".";
+                break;
+            case 1:
+                Report = "The object is " + objectName + " made of " + currentTrash.materialName + ". The object was found in " + objectCondition + " condition and took " + daysToTransport + " days to transport.";
+                break;
+            case 2:
+                Report = "The object is " + objectName + " made of " + currentTrash.materialName + ". The object took " + daysToTransport + " days to transport and was found in " + objectCondition + " condition.";
+                break;
+            case 3:
+                Report = "The object is " + objectName + " found in " + objectCondition + " condition. The object is made of " + currentTrash.materialName + " and took " + daysToTransport + " days to transport.";
+                break;
+            case 4:
+                Report = "The object is " + objectName + " and took " + daysToTransport + " days to transport. The object is made of " + currentTrash.materialName + " and was found in " + objectCondition + " condition.";
+                break;
+            case 5:
+                Report = "The object is made of " + currentTrash.materialName + " and took " + daysToTransport + " days to transport. The object is " + objectName + " found in " + objectCondition + " condition.";
+                break;
+            case 6:
+                Report = "The object is made of " + currentTrash.materialName + " and was found in " + objectCondition + " condition. The object is " + objectName + " and took " + daysToTransport + " days to transport.";
+                break;
+            case 7:
+                Report = "The object took " + daysToTransport + " days to transport and was found in " + objectCondition + " condition. The object is " + objectName + " made of " + currentTrash.materialName + ".";
+                break;
+            default:
+                Report = "The object took " + daysToTransport + " days to transport and was found in " + objectCondition + " condition. The object is " + objectName + " made of " + currentTrash.materialName + ".";
+                break;
+        }
 
         _descText_Report.text = Report;
-        switch (currentTrash.materialName)
+        /*switch (currentTrash.materialName)
         {
             case "wood":
                 _descText_Material.text = "wood";
@@ -136,7 +185,7 @@ public class Clipboard : MonoBehaviour, IClickable
                 break;
             default:
                 break;
-        }
+        }*/
 
     }
 
