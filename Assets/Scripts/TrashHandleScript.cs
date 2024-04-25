@@ -8,6 +8,10 @@ public class TrashHandleScript : MonoBehaviour
     [SerializeField] Material testSparkly;
     [SerializeField] GameObject cutObjectPrefab;
     public Color ogTrashColor;
+
+    [SerializeField] private ParticleSystem _cutVFX;
+    [SerializeField] private ParticleSystem _washVFX;
+    [SerializeField] private ParticleSystem _meltVFX;
     /*[SerializeField] Button recycle;
     [SerializeField] Button discard;*/
     bool melt = false;
@@ -24,6 +28,7 @@ public class TrashHandleScript : MonoBehaviour
 
     public void CutTrash()
     {
+        _cutVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
 
         GameObject currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash;
@@ -45,10 +50,12 @@ public class TrashHandleScript : MonoBehaviour
         // {
         ChangeChildrenMaterial(cutObject.transform, objMat); // Call a recursive function to change the material of all children
         //}
+        GameplayManagers.Instance.GetSortingDecisionManager().itemEffectsList.Add("cut");
     }
 
     public void WashTrash()
     {
+        _washVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
 
         GameObject currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash;
@@ -65,12 +72,14 @@ public class TrashHandleScript : MonoBehaviour
         foreach (MeshRenderer mr in currentTrash.GetComponentsInChildren<MeshRenderer>())
             mr.material = testSparkly;
 
+        GameplayManagers.Instance.GetSortingDecisionManager().itemEffectsList.Add("wash");
         Debug.Log(trashObj.washed);
     }
     [SerializeField]private Material meltMaterial;
     Material objMat;
     public void MeltTrash()
     {
+        _meltVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
         meltMaterial.SetColor("_Trash_Color", ogTrashColor);
 
@@ -87,10 +96,11 @@ public class TrashHandleScript : MonoBehaviour
         foreach (MeshRenderer mr in currentTrash.GetComponentsInChildren<MeshRenderer>())
             mr.material = meltMaterial;
         melt = true;
+        GameplayManagers.Instance.GetSortingDecisionManager().itemEffectsList.Add("melt");
         Debug.Log(trashObj.melted);
     }
     private float startValue = -1f; // Starting value of the float property
-    private float endValue = 1f; // Ending value of the float property
+    private float endValue = .5f; // Ending value of the float property
     private float duration = 2f; // Duration of the transition in seconds
     private float currentTime = 0f;
     
@@ -131,6 +141,7 @@ public class TrashHandleScript : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash);
         if(cutObject != null) Destroy(cutObject);
         GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;
+        GameplayManagers.Instance.GetSortingDecisionManager().recycledLastItem = true;
 
         GameplayManagers.Instance.GetEventManager().InvokeSortDecision(true);
         //print("help");
@@ -142,6 +153,7 @@ public class TrashHandleScript : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash);
         if (cutObject != null) Destroy(cutObject);
         GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().GetComponentInChildren<TrashSpawner>().isReadyForNextItem = true;
+        GameplayManagers.Instance.GetSortingDecisionManager().recycledLastItem = false;
 
 
         GameplayManagers.Instance.GetEventManager().InvokeSortDecision(false);

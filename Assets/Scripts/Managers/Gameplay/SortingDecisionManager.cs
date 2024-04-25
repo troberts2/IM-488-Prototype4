@@ -6,6 +6,8 @@ public class SortingDecisionManager : MonoBehaviour
 {
     [SerializeField] private List<TrashObj.material> recyclableMaterials;
     [SerializeField] private List<TrashObj.material> landfillMaterials;
+    internal bool recycledLastItem = false;
+    internal List<string> itemEffectsList = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
@@ -23,48 +25,60 @@ public class SortingDecisionManager : MonoBehaviour
             GameplayManagers.Instance.GetEventManager().InvokeSortCorrectness(true);
         else
             GameplayManagers.Instance.GetEventManager().InvokeSortCorrectness(false);
-        Debug.Log(ObjectShouldBeRecycled());
+        itemEffectsList.Clear();
     }
 
 
     private bool ObjectShouldBeRecycled()
     {
-        TrashObj currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<LinkToScriptableObject>()._object; // Get the current trash object
+        
 
-        if (currentTrash != null)
+        if (GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<LinkToScriptableObject>()._object != null)
         {
+            TrashObj currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<LinkToScriptableObject>()._object; // Get the current trash object
             Destinations currentDestination = GameplayManagers.Instance.GetDestinationManager().GetCurrentDestination();
 
             List<TrashObj.material> materialTypes = currentTrash.GetMaterialTypes();
             foreach (TrashObj.material material in materialTypes)
             {
-                if (!recyclableMaterials.Contains(material))
+                //check if you can actually recyle
+                if (!recyclableMaterials.Contains(material) && recycledLastItem)
                 {
-                    return false; // If any material is not recyclable, return false
+                    return false; // If any material is not recyclable,and you clicked recylce return false
+                }else if(recyclableMaterials.Contains(material) && !recycledLastItem){
+                    return true;
                 }
+
+                
                 //material checks
-                if(material == TrashObj.material.PET_Plastic && !currentTrash.cut) return false;
-                if(material == TrashObj.material.HDPE_Plastic && !currentTrash.cut) return false;
-                if(material == TrashObj.material.Aluminum && (!currentTrash.cut || !currentTrash.melted)) return false;
-                if(material == TrashObj.material.iron && !currentTrash.melted) return false;
-                if(material == TrashObj.material.lead && !currentTrash.melted) return false;
-                if(material == TrashObj.material.copper && (!currentTrash.cut || !currentTrash.melted)) return false;
-                if(material == TrashObj.material.uranium && !currentTrash.washed) return false;
-                if(material == TrashObj.material.wood && !currentTrash.cut) return false;
+                if(material == TrashObj.material.PET_Plastic && itemEffectsList.Count > 0 && itemEffectsList[0] != "cut") return false;
+                if(material == TrashObj.material.HDPE_Plastic && itemEffectsList.Count > 0 && itemEffectsList[0] != "cut") return false;
+                if(material == TrashObj.material.Aluminum && itemEffectsList.Count > 0 && (itemEffectsList[0] != "cut" || itemEffectsList[1] != "melt")) return false;
+                if(material == TrashObj.material.iron && itemEffectsList.Count > 0 && itemEffectsList[0] != "melt") return false;
+                if(material == TrashObj.material.lead && itemEffectsList.Count > 0 && itemEffectsList[0] != "melt") return false;
+                if(material == TrashObj.material.copper && itemEffectsList.Count > 0 && (itemEffectsList[0] != "cut" || itemEffectsList[1] != "melt")) return false;
+                if(material == TrashObj.material.uranium && itemEffectsList.Count > 0 && itemEffectsList[0] != "wash") return false;
+                if(material == TrashObj.material.wood && itemEffectsList.Count > 0 && itemEffectsList[0] != "cut") return false;
 
                 //destination checks
                 if(currentDestination == Destinations.Suburbia){
-                    if(!currentTrash.washed || !currentTrash.cut || !currentTrash.melted){
+                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
+                        return false;
+                    }
+                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "cut"){
+                        return false;
+                    }
+                    if(itemEffectsList.Count > 2 && itemEffectsList[2] != null && itemEffectsList[2] != "melt"){
                         return false;
                     }
                 }
                 if(currentDestination == Destinations.Untentia){
-                    if(!currentTrash.cut){
+                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "cut"){
                         return false;
                     }
                 }
                 if(currentDestination == Destinations.Metrock){
-                    if(!currentTrash.melted){
+                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "melt"){
                         return false;
                     }
                 }
@@ -74,17 +88,26 @@ public class SortingDecisionManager : MonoBehaviour
                     }
                 }
                 if(currentDestination == Destinations.Frugand){
-                    if(!currentTrash.washed || !currentTrash.cut){
+                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
+                        return false;
+                    }
+                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "cut"){
                         return false;
                     }
                 }
                 if(currentDestination == Destinations.Alloyland){
-                    if(!currentTrash.cut || !currentTrash.melted){
+                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "cut"){
+                        return false;
+                    }
+                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "melt"){
                         return false;
                     }
                 }
                 if(currentDestination == Destinations.Radiolead){
-                    if(!currentTrash.washed || !currentTrash.melted){
+                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
+                        return false;
+                    }
+                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "melt"){
                         return false;
                     }
                 }

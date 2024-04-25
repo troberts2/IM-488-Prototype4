@@ -8,7 +8,14 @@ public class Clipboard : MonoBehaviour, IClickable
 {
     [Header("Clipboard UI")]
     [SerializeField] private TMP_Text _nameText;
-    [SerializeField] private TMP_Text _descText;
+    [SerializeField] private TMP_Text _descText_Name;
+    [SerializeField] private TMP_Text _descText_Material;
+    [SerializeField] private TMP_Text _descText_Report;
+
+    private string Report;
+    private int daysToTransport;
+    private string objectCondition;
+    private string objectDestination;
     //[SerializeField] private TMP_Text _destinationText;
     [Space]
     [SerializeField] private Animator _bookAnimator;
@@ -19,6 +26,8 @@ public class Clipboard : MonoBehaviour, IClickable
     void Start()
     {
         SubscribeToEvents();
+
+        
     }
 
     private void SubscribeToEvents()
@@ -42,7 +51,94 @@ public class Clipboard : MonoBehaviour, IClickable
 
         _nameText.text = currentTrash.name;
 
-        _descText.text = currentTrash.description;
+        _descText_Name.text = currentTrash.name;
+
+        daysToTransport = Random.Range(1, 14);
+
+        int randCondition = Random.Range(0,7);
+
+        switch (randCondition)
+        {
+            case 0:
+                objectCondition = "good";
+                break;
+            case 1:
+                objectCondition = "bad";
+                break;
+            case 2:
+                objectCondition = "good";
+                break;
+            case 3:
+                objectCondition = "bad";
+                break;
+            case 4:
+                objectCondition = "good";
+                break;
+            case 5:
+                objectCondition = "bad";
+                break;
+            case 6:
+                objectCondition = "good";
+                break;
+            case 7:
+                objectCondition = "bad";
+                break;
+            default:
+                print("unkown condition");
+                break;
+        }
+        
+        objectDestination = "Suburbia";
+        Report = "The object took " + daysToTransport + " days to transport and was found in " + objectCondition + " condition. " +
+            "Its next destination is " + objectDestination;
+
+        _descText_Report.text = Report;
+        switch (currentTrash.materialName)
+        {
+            case "wood":
+                _descText_Material.text = "wood";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "paper":
+                _descText_Material.text = "paper";
+                _descText_Material.color = Color.green;
+                break;
+            case "aluminum":
+                _descText_Material.text = "aluminum";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "iron":
+                _descText_Material.text = "iron";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "copper":
+                _descText_Material.text = "copper";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "uranium":
+                _descText_Material.text = "uranium";
+                _descText_Material.color = Color.red;
+                break;
+            case "PET plastic":
+                _descText_Material.text = "PET plastic";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "HDPE plastic":
+                _descText_Material.text = "HDPE plastic";
+                _descText_Material.color = Color.yellow;
+                break;
+            case "PVC plastic":
+                _descText_Material.text = "PVC plastic";
+                _descText_Material.color = Color.red;
+                break;
+            case "PS plastic":
+                _descText_Material.text = "PS Plastic";
+                _descText_Material.color = Color.red;
+                break;
+            default:
+                break;
+        }
+
     }
 
     #region PlayerInteractions
