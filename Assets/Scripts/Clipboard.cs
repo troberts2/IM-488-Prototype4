@@ -89,8 +89,7 @@ public class Clipboard : MonoBehaviour, IClickable
         }
         
         objectDestination = "Suburbia";
-        Report = "The object took " + daysToTransport + " days to transport and was found in " + objectCondition + " condition. " +
-            "Its next destination is " + objectDestination;
+        Report = "The object took " + daysToTransport + " days to transport and was found in " + objectCondition + " condition.";
 
         _descText_Report.text = Report;
         switch (currentTrash.materialName)
