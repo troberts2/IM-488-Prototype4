@@ -9,17 +9,17 @@ public class TrashObj : ScriptableObject
 
     public enum material
     {
-        wood,//recyclable
-        paper,//recyclable
+        Wood,//recyclable
+        Paper,//recyclable
         Aluminum,//recyclable
-        iron,
-        copper,//recyclable
-        uranium,
+        Iron,
+        Copper,//recyclable
+        Uranium,
         PET_Plastic,//recyclable
         HDPE_Plastic,//recyclable
         PVC_Plastic,
         PS_Plastic,
-        lead
+        Lead
     }
     public bool cut = false;
     public bool washed = false;
@@ -43,30 +43,30 @@ public class TrashObj : ScriptableObject
     {
         for (int i = 0; i < numOfMaterialsMadeOf; i++)
         {
-            switch (Random.Range(((int)material.wood),((int)material.PS_Plastic)))
+            switch (Random.Range(((int)material.Wood),((int)material.PS_Plastic)))
             {
-                case ((int)material.wood):
-                    _material.Add(material.wood);
+                case ((int)material.Wood):
+                    _material.Add(material.Wood);
                     materialName = "wood";
                     break;
-                case ((int)material.paper):
-                    _material.Add(material.paper);
+                case ((int)material.Paper):
+                    _material.Add(material.Paper);
                     materialName = "paper";
                     break;
                 case ((int)material.Aluminum):
                     _material.Add(material.Aluminum);
                     materialName = "aluminum";
                     break;
-                case ((int)material.iron):
-                    _material.Add(material.iron);
+                case ((int)material.Iron):
+                    _material.Add(material.Iron);
                     materialName = "iron";
                     break;
-                case ((int)material.copper):
-                    _material.Add(material.copper);
+                case ((int)material.Copper):
+                    _material.Add(material.Copper);
                     materialName = "copper";
                     break;
-                case ((int)material.uranium):
-                    _material.Add(material.uranium);
+                case ((int)material.Uranium):
+                    _material.Add(material.Uranium);
                     materialName = "uranium";
                     break;
                 case ((int)material.PET_Plastic):
