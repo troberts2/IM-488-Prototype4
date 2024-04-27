@@ -86,6 +86,7 @@ public class TrashHandleScript : MonoBehaviour
         GameObject currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash;
         TrashObj trashObj = currentTrash.GetComponent<LinkToScriptableObject>()._object;
         trashObj.melted = true;
+        GameplayManagers.Instance.GetSortingDecisionManager().itemEffectsList.Add("melt");
 
         if (cutObject != null) // Check if the GameObject itself doesn't have a MeshRenderer
         {
@@ -96,7 +97,7 @@ public class TrashHandleScript : MonoBehaviour
         foreach (MeshRenderer mr in currentTrash.GetComponentsInChildren<MeshRenderer>())
             mr.material = meltMaterial;
         melt = true;
-        GameplayManagers.Instance.GetSortingDecisionManager().itemEffectsList.Add("melt");
+        
         Debug.Log(trashObj.melted);
     }
     private float startValue = -1f; // Starting value of the float property
