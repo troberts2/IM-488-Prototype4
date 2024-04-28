@@ -7,7 +7,7 @@ public class Phone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(AnswerPhone());
     }
 
     private IEnumerator AnswerPhone()
