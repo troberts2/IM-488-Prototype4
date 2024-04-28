@@ -22,7 +22,7 @@ public class SortingDecisionManager : MonoBehaviour
 
     private void PlayerSortActionDecision(bool recycled)
     {
-        if (ObjectShouldBeRecycled() == recycled)
+        if (ObjectShouldBeRecycled() == recycledLastItem)
             GameplayManagers.Instance.GetEventManager().InvokeSortCorrectness(true);
         else
             GameplayManagers.Instance.GetEventManager().InvokeSortCorrectness(false);
@@ -34,12 +34,16 @@ public class SortingDecisionManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash != null)
         {
+            
             TrashObj currentTrash = GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash.GetComponent<LinkToScriptableObject>()._object; // Get the current trash object
             Destinations currentDestination = GameplayManagers.Instance.GetDestinationManager().GetCurrentDestination();
 
             List<TrashObj.material> materialTypes = currentTrash.GetMaterialTypes();
             foreach (TrashObj.material material in materialTypes)
             {
+                if(!recycledLastItem && recyclableMaterials.Contains(material)){
+                    return true;
+                }
                 //material checks
                 if(material == TrashObj.material.PET_Plastic && itemEffectsList.Count > 0 && itemEffectsList[0] != "cut") return false;
                 else if(material == TrashObj.material.PET_Plastic && (itemEffectsList.Count == 0 || itemEffectsList.Count > 1)) return false;
@@ -64,60 +68,63 @@ public class SortingDecisionManager : MonoBehaviour
                 }
 
                 //destination checks
-                if(currentDestination == Destinations.Suburbia){
-                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
-                        return false;
+                if(recycledLastItem){
+                    if(currentDestination == Destinations.Suburbia){
+                        if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
+                            return false;
+                        }
+                        if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "cut"){
+                            return false;
+                        }
+                        if(itemEffectsList.Count > 2 && itemEffectsList[2] != null && itemEffectsList[2] != "melt"){
+                            return false;
+                        }
+                        if(itemEffectsList.Count == 0 || itemEffectsList.Count > 3) return false;
                     }
-                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "cut"){
-                        return false;
+                    if(currentDestination == Destinations.Untentia){
+                        if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "cut"){
+                            return false;
+                        }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 1) return false;
                     }
-                    if(itemEffectsList.Count > 2 && itemEffectsList[2] != null && itemEffectsList[2] != "melt"){
-                        return false;
+                    if(currentDestination == Destinations.Metrock){
+                        if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "melt"){
+                            return false;
+                        }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 1) return false;
                     }
-                    if(itemEffectsList.Count == 0 || itemEffectsList.Count > 3) return false;
-                }
-                if(currentDestination == Destinations.Untentia){
-                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "cut"){
-                        return false;
-                    }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 1) return false;
-                }
-                if(currentDestination == Destinations.Metrock){
-                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "melt"){
-                        return false;
-                    }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 1) return false;
-                }
-                if(currentDestination == Destinations.Middlesburg){
-                    if(currentTrash.washed || currentTrash.cut || currentTrash.melted){
-                        return false;
-                    }else if(itemEffectsList.Count != 0) return false;
-                }
-                if(currentDestination == Destinations.Frugand){
-                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
-                        return false;
+                    if(currentDestination == Destinations.Middlesburg){
+                        if(currentTrash.washed || currentTrash.cut || currentTrash.melted){
+                            return false;
+                        }else if(itemEffectsList.Count != 0) return false;
                     }
-                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "cut"){
-                        return false;
-                    }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 2) return false;
-                }
-                if(currentDestination == Destinations.Alloyland){
-                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "cut"){
-                        return false;
+                    if(currentDestination == Destinations.Frugand){
+                        if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
+                            return false;
+                        }
+                        if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "cut"){
+                            return false;
+                        }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 2) return false;
                     }
-                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "melt"){
-                        return false;
-                    }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 2) return false;
-                }
-                if(currentDestination == Destinations.Radiolead){
-                    if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
-                        return false;
+                    if(currentDestination == Destinations.Alloyland){
+                        if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "cut"){
+                            return false;
+                        }
+                        if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "melt"){
+                            return false;
+                        }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 2) return false;
                     }
-                    if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "melt"){
-                        return false;
-                    }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 2) return false;
-                }
+                    if(currentDestination == Destinations.Radiolead){
+                        if(itemEffectsList.Count > 0 && itemEffectsList[0] != null && itemEffectsList[0] != "wash"){
+                            return false;
+                        }
+                        if(itemEffectsList.Count > 1 && itemEffectsList[1] != null && itemEffectsList[1] != "melt"){
+                            return false;
+                        }else if(itemEffectsList.Count == 0 || itemEffectsList.Count > 2) return false;
+                    }
+                }  
             }
             return true; // If all materials are recyclable, return true
         }
+        Debug.Log("made it");
         return false; // default
     }
 }

@@ -13,7 +13,7 @@ public class DestinationManager : MonoBehaviour
     void Start()
     {
         UpdateDestinationUI();
-        _currentDestination = Destinations.Alloyland;
+        _currentDestination = Destinations.Suburbia;
     }
 
     public void ProgressDestination()
