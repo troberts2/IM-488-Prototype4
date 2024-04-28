@@ -73,7 +73,6 @@ public class TrashHandleScript : MonoBehaviour
             mr.material = testSparkly;
 
         GameplayManagers.Instance.GetSortingDecisionManager().itemEffectsList.Add("wash");
-        Debug.Log(trashObj.washed);
     }
     [SerializeField]private Material meltMaterial;
     Material objMat;
