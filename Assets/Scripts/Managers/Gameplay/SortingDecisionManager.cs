@@ -15,7 +15,7 @@ public class SortingDecisionManager : MonoBehaviour
         itemEffectsList = new List<string>();
     }
 
-    private void SubscribeToEvents()
+    public void SubscribeToEvents()
     {
         GameplayManagers.Instance.GetEventManager().GetSortDecisionEvent().AddListener(PlayerSortActionDecision);
     }

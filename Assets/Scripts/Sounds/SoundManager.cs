@@ -7,8 +7,8 @@ public class SoundManager : MonoBehaviour
 
     public static SoundManager Instance;
 
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public Sound[] musicSounds, sfxSounds, Vasounds;
+    public AudioSource musicSource, sfxSource, VASource;
 
     private void Awake()
     {
@@ -55,6 +55,21 @@ public class SoundManager : MonoBehaviour
         else
         {
             sfxSource.PlayOneShot(s.clip);
+        }
+    }
+
+    public void PlayVA(string name)
+    {
+        Sound s = Array.Find(Vasounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Voice acting not found, nerd");
+        }
+
+        else
+        {
+            VASource.PlayOneShot(s.clip);
         }
     }
 }
