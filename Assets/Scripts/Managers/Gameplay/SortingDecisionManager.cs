@@ -59,11 +59,12 @@ public class SortingDecisionManager : MonoBehaviour
                 else if(material == TrashObj.material.Copper && (itemEffectsList[0] != "cut" || itemEffectsList[1] != "melt")) return false;
                 if(material == TrashObj.material.Wood && itemEffectsList.Count > 0 && itemEffectsList[0] != "cut") return false;
                 else if(material == TrashObj.material.Wood && (itemEffectsList.Count == 0 || itemEffectsList.Count > 1)) return false;
-                if(material == TrashObj.material.Uranium && itemEffectsList.Count > 0 && itemEffectsList[0] != "wash") return false;
-                else if(material == TrashObj.material.Uranium  && (itemEffectsList.Count == 0 || itemEffectsList.Count > 1)) return false;
+                if(material == TrashObj.material.Uranium && itemEffectsList.Count > 0 && itemEffectsList[0] != "wash" && !recycledLastItem) return true;
+                else if(material == TrashObj.material.Uranium  && !recycledLastItem && (itemEffectsList.Count == 0 || itemEffectsList.Count > 1)) return true;
                 //check if you can actually recyle
-                if (!recyclableMaterials.Contains(material))
+                if (!recyclableMaterials.Contains(material) && !recycledLastItem)
                 {
+                    Debug.Log("made it");
                     return false; // If any material is not recyclable,and you clicked recylce return false
                 }
 
