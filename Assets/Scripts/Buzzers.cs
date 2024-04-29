@@ -22,6 +22,8 @@ public class Buzzers : MonoBehaviour
             BuzzerCorrect();
         else
             BuzzerIncorrect();
+        
+        
     }
 
     private void BuzzerCorrect()
@@ -32,5 +34,6 @@ public class Buzzers : MonoBehaviour
     private void BuzzerIncorrect()
     {
         _buzzerAnimator.SetTrigger("IncorrectChoice");
+        SoundManager.Instance.PlaySFX("Buzzer");
     }
 }

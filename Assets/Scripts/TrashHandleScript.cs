@@ -28,6 +28,7 @@ public class TrashHandleScript : MonoBehaviour
 
     public void CutTrash()
     {
+        SoundManager.Instance.PlaySFX("Cut");
         _cutVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
 
@@ -55,6 +56,7 @@ public class TrashHandleScript : MonoBehaviour
 
     public void WashTrash()
     {
+        SoundManager.Instance.PlaySFX("Wash");
         _washVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
 
@@ -78,6 +80,7 @@ public class TrashHandleScript : MonoBehaviour
     Material objMat;
     public void MeltTrash()
     {
+        SoundManager.Instance.PlaySFX("Melt");
         _meltVFX.Play();
         if(GameObject.FindGameObjectWithTag("Conveyor").GetComponent<Conveyor>().currentTrash == null) return;
         meltMaterial.SetColor("_Trash_Color", ogTrashColor);
