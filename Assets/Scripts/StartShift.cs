@@ -21,6 +21,7 @@ public class StartShift : MonoBehaviour
         //allow points to be incremented or decremented
         scoreManager.SubscribeToEvents();
         sortingDecisionManager.SubscribeToEvents();
+        FindObjectOfType<Dumpster>().SubscribeToEvents();
 
         button.GetComponent<MeshRenderer>().material.color = Color.red;
         shiftText.text = "On Shift";

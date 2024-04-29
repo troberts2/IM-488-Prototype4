@@ -11,7 +11,7 @@ public class SortingDecisionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SubscribeToEvents();
+        //SubscribeToEvents();
         itemEffectsList = new List<string>();
     }
 
@@ -22,6 +22,7 @@ public class SortingDecisionManager : MonoBehaviour
 
     private void PlayerSortActionDecision(bool recycled)
     {
+        Debug.Log("PlayerSortActionDecsision");
         if (ObjectShouldBeRecycled() == recycledLastItem)
             GameplayManagers.Instance.GetEventManager().InvokeSortCorrectness(true);
         else

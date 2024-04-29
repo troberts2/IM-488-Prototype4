@@ -13,7 +13,7 @@ public class LinkToScriptableObject : MonoBehaviour
         _object.CreateTrash(1);
         _object.name = gameObject.name.Remove(name.Length - 7);
         _object.description = "a " + name.Remove(name.Length - 7) + " made of " + _object.materialName;
-        print(_object.description);
+        //print(_object.description);
         
     }
 }

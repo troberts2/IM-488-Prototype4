@@ -6,13 +6,8 @@ public class Dumpster : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _models;
     private int _modelPos;
-    // Start is called before the first frame update
-    void Start()
-    {
-        SubscribeToEvents();
-    }
 
-    private void SubscribeToEvents()
+    public void SubscribeToEvents()
     {
         GameplayManagers.Instance.GetEventManager().GetSortCorrectnessEvent().AddListener(IncrementModels);
     }
