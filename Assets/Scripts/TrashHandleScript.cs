@@ -103,7 +103,7 @@ public class TrashHandleScript : MonoBehaviour
         Debug.Log(trashObj.melted);
     }
     private float startValue = -1f; // Starting value of the float property
-    private float endValue = .5f; // Ending value of the float property
+    private float endValue = .2f; // Ending value of the float property
     private float duration = 2f; // Duration of the transition in seconds
     private float currentTime = 0f;
     
